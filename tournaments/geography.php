@@ -62,8 +62,11 @@
 		file_put_contents($cache, serialize($geography));
 	}
 
-	foreach ($geography as &$data)
+	foreach ($geography as $city => $data) {
 		sort($data['teams']);
+
+		$geography[$city]['teams'] = $data['teams'];
+	}
 
 	ksort($geography);
 
